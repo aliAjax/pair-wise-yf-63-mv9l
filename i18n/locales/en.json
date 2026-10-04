@@ -1,8 +1,15 @@
 {
   "title": "Multinational Trial Randomization Desk",
-  "subtitle": "Stratified randomization, role isolation, safe unblinding and pending queue",
+  "subtitle": "Blind-list reconciliation: stratified block validation, blocked arm mismatches, void-and-requeue for confirmation, offline merge keeping both sides",
   "randomize": "Randomize",
   "participants": "Participants",
   "audit": "Safety audit",
-  "pending": "Pending queue"
+  "pending": "Pending queue",
+  "blind": "Blind list",
+  "issue": "Issue number",
+  "ledger": "Issuing ledger",
+  "pendingConfirm": "Pending confirmation",
+  "discrepancy": "Arm discrepancies",
+  "conflict": "Merge conflicts",
+  "reconcile": "Reconcile offline records"
 }

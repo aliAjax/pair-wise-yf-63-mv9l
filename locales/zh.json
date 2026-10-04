@@ -1,8 +1,15 @@
 {
   "title": "跨国临床试验随机分组与揭盲控制台",
-  "subtitle": "分层随机、角色隔离、安全揭盲与待提交队列",
+  "subtitle": "盲底与发号对账：分层区组校验、组别差异拦下、作废重排待确认、断网合并两边都留",
   "randomize": "执行随机分组",
   "participants": "受试者",
   "audit": "安全审计",
-  "pending": "待提交队列"
+  "pending": "待提交队列",
+  "blind": "盲底表",
+  "issue": "中心发号",
+  "ledger": "发号台账",
+  "pendingConfirm": "待确认",
+  "discrepancy": "组别差异",
+  "conflict": "合并冲突",
+  "reconcile": "恢复联网合并"
 }
