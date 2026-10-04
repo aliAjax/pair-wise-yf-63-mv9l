@@ -46,7 +46,7 @@ const submit = handleSubmit((values) => {
 const unblind = async (id: string, participantNumber: string) => {
   try {
     const { value } = await ElMessageBox.prompt(`为 ${participantNumber} 填写紧急揭盲原因`, '紧急揭盲', { inputType: 'textarea', inputValidator: (value) => Boolean(value?.trim()) || '揭盲原因不能为空', confirmButtonText: '确认并审计' });
-    trial.emergencyUnblind(id, value, actor.value);
+    trial.emergencyUnblind(id, value ?? '', actor.value ?? '研究者张宁');
     ElMessage.warning('已揭盲，审计记录已追加');
   } catch {}
 };
@@ -62,7 +62,9 @@ const counts = computed(() => ({
 <template>
   <main class="page">
     <header class="hero">
-      <div><el-tag type="success">GCP 本地原型</el-tag><h1>{{ t('title') }}</h1><p>{{ t('subtitle') }}</p></div>
+      <div><el-tag type="success">GCP 本地原型</el-tag><h1>{{ t('title') }}</h1><p>{{ t('subtitle') }}</p>
+        <el-button type="primary" plain style="margin-top:10px" @click="$router.push('/register')">前往：盲底 × 发号对账登记 →</el-button>
+      </div>
       <el-segmented v-model="role" :options="[{ label: '研究者', value: 'investigator' }, { label: '药品管理员', value: 'pharmacist' }, { label: '监察员', value: 'monitor' }]" />
     </header>
 
@@ -105,7 +107,7 @@ const counts = computed(() => ({
         <el-table v-else :data="pending">
           <el-table-column prop="payload.participantNo" label="受试者" />
           <el-table-column prop="status" label="状态" />
-          <el-table-column label="操作"><template #default="{ row }"><el-button :disabled="row.status !== 'pending'" size="small" type="primary" @click="trial.commitPending(row.id, actor)">确认入库</el-button></template></el-table-column>
+          <el-table-column label="操作"><template #default="{ row }"><el-button :disabled="row.status !== 'pending'" size="small" type="primary" @click="trial.commitPending(row.id, actor ?? '研究者张宁')">确认入库</el-button></template></el-table-column>
         </el-table>
       </el-card>
       <el-card shadow="never">
